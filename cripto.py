@@ -11,7 +11,7 @@ for i in dire:
 
 for i in filename.split("/"):
 	caminho += i + "/"
-	print(caminho)
+	#print(caminho)
 	if i == "caioChiuchi":
 		break
 

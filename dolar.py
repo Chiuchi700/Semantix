@@ -4,6 +4,17 @@ import csv
 import os
 import time
 
+caminho = ""
+dire = os.listdir(".")
+for i in dire:
+	filename = os.path.abspath(i)
+
+for i in filename.split("/"):
+	caminho += i + "/"
+	#print(caminho)
+	if i == "caioChiuchi":
+		break
+
 def moeda(html):
 	#verifica o titulo da moeda
 	aux = html.find("instrumentH1inlineblock") + 30
@@ -44,9 +55,9 @@ def timestamp(r):
 
 def gravar(saida):
 	#abertura do arquivo com append
-    arq = csv.writer(open('$PWD/caioChiuchi/crawler_dolar/dolar_timestamp.csv', 'a+'), delimiter = ';')
+    arq = csv.writer(open(caminho + 'crawler_dolar/dolar_timestamp.csv', 'a+'), delimiter = ';')
 	#escrita da linha
-    if os.stat('$PWD/caioChiuchi/crawler_dolar/dolar_timestamp.csv').st_size == 0:
+    if os.stat(caminho + 'crawler_dolar/dolar_timestamp.csv').st_size == 0:
         arq.writerow(['currency', 'value', 'change', 'perc', 'timestamp'])
 
     arq.writerow(saida)
