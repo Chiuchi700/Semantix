@@ -44,9 +44,9 @@ def timestamp(r):
 
 def gravar(saida):
 	#abertura do arquivo com append
-    arq = csv.writer(open('caioChiuchi/crawler_dolar/dolar_timestamp.csv', 'a+'), delimiter = ';')
+    arq = csv.writer(open('$PWD/caioChiuchi/crawler_dolar/dolar_timestamp.csv', 'a+'), delimiter = ';')
 	#escrita da linha
-    if os.stat('caioChiuchi/crawler_dolar/dolar_timestamp.csv').st_size == 0:
+    if os.stat('$PWD/caioChiuchi/crawler_dolar/dolar_timestamp.csv').st_size == 0:
         arq.writerow(['currency', 'value', 'change', 'perc', 'timestamp'])
 
     arq.writerow(saida)

@@ -24,8 +24,8 @@ for i in s[1:]:
     pos = list(filter(None,text))
     #print(pos)
 
-    saida = csv.writer(open('caioChiuchi/crawler_crypto/crypto_timestamp.csv','a+'), delimiter=',')
-    if os.path.getsize('caioChiuchi/crawler_crypto/crypto_timestamp.csv') == 0:
+    saida = csv.writer(open('$PWD/caioChiuchi/crawler_crypto/crypto_timestamp.csv','a+'), delimiter=',')
+    if os.path.getsize('$PWD/caioChiuchi/crawler_crypto/crypto_timestamp.csv') == 0:
         saida.writerow(['code', 'name', 'priceUSD', 'change24H', 'change7D', 'symbol', 'priceBTC', 'marketCap', 'volume24H', 'totalVolume', 'timestamp'])
 
         saida.writerow([pos[0],pos[1],pos[2],pos[3],pos[4],pos[5],pos[6],pos[7],pos[8],pos[9],time])
