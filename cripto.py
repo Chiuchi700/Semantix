@@ -4,16 +4,7 @@ import requests
 import csv
 import os
 
-caminho = ""
-dire = os.listdir(".")
-for i in dire:
-	filename = os.path.abspath(i)
-
-for i in filename.split("/"):
-	caminho += i + "/"
-	#print(caminho)
-	if i == "caioChiuchi":
-		break
+path = os.getcwd()
 
 link = requests.get(url="https://m.investing.com/crypto/", headers={'User-Agent':'curl/7.52.1'})
 
@@ -35,8 +26,8 @@ for i in s[1:]:
     pos = list(filter(None,text))
     #print(pos)
 
-    saida = csv.writer(open(caminho + "crawler_crypto/crypto_timestamp.csv",'a+'), delimiter=',')
-    if os.path.getsize(caminho + "crawler_crypto/crypto_timestamp.csv") == 0:
+    saida = csv.writer(open(path + "/caioChiuchi/crawler_crypto/crypto_timestamp.csv",'a+'), delimiter=',')
+    if os.path.getsize(path + "/caioChiuchi/crawler_crypto/crypto_timestamp.csv") == 0:
         saida.writerow(['code', 'name', 'priceUSD', 'change24H', 'change7D', 'symbol', 'priceBTC', 'marketCap', 'volume24H', 'totalVolume', 'timestamp'])
 
         saida.writerow([pos[0],pos[1],pos[2],pos[3],pos[4],pos[5],pos[6],pos[7],pos[8],pos[9],time])
